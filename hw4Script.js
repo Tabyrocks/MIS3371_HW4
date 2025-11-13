@@ -38,7 +38,7 @@ function setDate()
 https://stackoverflow.com/questions/63663201/i-use-a-fetch-statement-to-retrieve-my-html-footer-and-include-it-on-every-page*/
 function getFooter() 
   {
-    fetch('hw3-footer.html')
+    fetch('hw4-footer.html')
     .then(response => response.text())
     .then(data => {
     document.getElementById('footerPlaceholder').innerHTML = data;
@@ -49,7 +49,7 @@ function getFooter()
   /*Created function using fetch API to retrieve the option list for the dropdown state list*/
   function getStateList() 
   {
-    fetch('hw3-states.html')
+    fetch('hw4-states.html')
     .then(response => response.text())
     .then(data => {
     document.getElementById("state").innerHTML = data;
@@ -631,4 +631,5 @@ function reviewData() {
 
     }
 }
+
 
