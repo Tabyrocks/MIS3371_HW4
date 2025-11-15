@@ -79,17 +79,16 @@ Description: Creating patient registration form
 			<hr>
 				<!-- Creating section for the patient information and adding in text to explain which are required fields-->
 				<table>	
-					<tbody>
+					<tbody class="ptname">
 						<tr>
 							<h3 id="required">Required fields are denoted by </h3>
-							<td class="ptname">
-								<label 
+								<td><label 
 									for="fnameValidate"
 									id="required"
 								>
 									First Name
-								</label>
-									<input 
+								</label></td>
+									<td><input 
 										type="text" 
 										name="firstName" 
 										class="patientname"
@@ -102,13 +101,14 @@ Description: Creating patient registration form
 										maxlength="30" 
 										required
 									>
-									</input>
-
-								<label
-									for="midnameValidate">
+									</input></td>
+								
+								<td><label
+									for="midnameValidate"
+								>
 									MI
-								</label>
-									<input 
+								</label></td>
+									<td><input 
 										type="text" 
 										name="middleName" 
 										class="midname"
@@ -120,15 +120,15 @@ Description: Creating patient registration form
 										minlength="0" 
 										maxlength="1"
 									>
-									</input>
+									</input></td>
 							
-								<label
+								<td><label
 									for="lnameValidate"
 									id="required"
 								>
 									Last Name
-								</label>
-									<input 
+								</label></td>
+									<td><input 
 										type="text" 
 										name="lastName" 
 										class="patientname"
@@ -141,23 +141,21 @@ Description: Creating patient registration form
 										maxlength="30" 
 										required
 									>
-									</input>
-							</td>
+									</input></td>
 							<td>
 									<span class="errMsg" id="fnameErrorMsg"></span>
 									<span class="errMsg" id="midnameErrorMsg"></span>
 									<span class="errMsg" id="lnameErrorMsg"></span>
 							</td>
 						</tr>
-						<tr>
-							<td class="ptinfo">
-								<label
+						<tr class="ptinfo">
+								<td><label
 									for="dobValidate"
 									id="required"
 								>
 									Date of Birth
-								</label>
-									<input 
+								</label></td>
+									<td><input 
 										type="date" 
 										name="dob" 
 										id="dobValidate" 
@@ -165,14 +163,14 @@ Description: Creating patient registration form
 										placeholder="Date of Birth"
 										required
 									>
-									</input>
-								<label
+									</input></td>
+								<td><label
 									for="ssnValidate"
 									id="required"
 								>
 									SSN
-								</label>
-									<input 
+								</label></td>
+									<td><input 
 										type="password" 
 										name="ssn" 
 										id="ssnValidate"
@@ -184,12 +182,13 @@ Description: Creating patient registration form
 										maxlength="9" 
 										required
 									>
-									</input>
+									</input></td>
 								
 								<!--Adding radio boxes for Gender, primary language and marital status-->
-								<label>
+								<td><label>
 									Gender
-
+								</label></td>
+								<td>
 									<input 
 										type="radio" 
 										class="gender" 
@@ -198,6 +197,7 @@ Description: Creating patient registration form
 									>
 										Male
 									</input>
+								
 									<input 
 										type="radio" 
 										class="gender" 
@@ -206,6 +206,7 @@ Description: Creating patient registration form
 									>
 										Female
 									</input>
+								
 									<input 
 										type="radio" 
 										class="gender" 
@@ -214,20 +215,19 @@ Description: Creating patient registration form
 									>
 										Other
 									</input>
-								</label>
-							</td>	
+								</td>
 							<td>
 								<span class="errMsg" id="dateErrorMsg"></span>
 								<span class="errMsg" id="ssnErrorMsg"></span>
 							</td>
 						</tr>
-						<tr>
-							<td class="ptlang">
-								<label 
+						<tr class="ptlang">
+								<td><label 
 									class="primelang"
 								>
 									Primary Language
-								
+								</label></td>
+								<td colspan="2">
 									<input 
 										type="radio" 
 										class="primelang" 
@@ -252,6 +252,8 @@ Description: Creating patient registration form
 									>
 										Other:
 									</input>
+								</td>
+								<td>
 								<!-- Adding input text box to freely type in an other language-->
 									<input 
 										type="text" 
@@ -261,17 +263,15 @@ Description: Creating patient registration form
 										name="othertxt"
 									>
 									</input>
-								</label>
 							</td>	
 						</tr>
-						<tr>
-							<td class="ptmarital">
-								<label  
+						<tr class="ptmarital">
+								<td><label  
 									class="maritalstatus"
 								>
 									Marital Status
-								
-									<input 
+								</label></td>
+									<td><input 
 										type="radio" 
 										class="maritalstatus" 
 										name="maritalstatus" 
@@ -302,14 +302,14 @@ Description: Creating patient registration form
 										value="widowed"
 									>
 										Widowed
-									</input>
-								</label>
-							</td>	
+									</input></td>	
 						</tr>
 					</tbody>
+				</table>
 				<table>
 			<hr>
 				<!-- Creating section header for the Contact Information-->
+				</table>
 				<table>
 					<tr>
 						<th 
@@ -320,19 +320,21 @@ Description: Creating patient registration form
 						</th>
 					</tr>
 				</table>
+				<table>
 			<hr>
 				<!-- Creating section for the contact information-->
+				</table>
 				<table>
 					<tbody>			
-						<tr>
-							<td class="address">
-								<label 
+						<tr class="address">
+								<td><label 
 									for="addressValidate"
 									id="required"
 								>
 									Address 
-								</label>
-									<input 
+								</label></td>
+									<td
+									colspan="5"><input 
 										type="address" 
 										name="address" 
 										class="address1"
@@ -345,19 +347,18 @@ Description: Creating patient registration form
 										maxlength="30" 
 										required
 									>
-									</input>
-							</td>
+									</input></td>
 							<td>
 								<span class="errMsg" id="addressErrorMsg"></span>
 							</td>
 						</tr>
-						<tr>
-							<td class="address-2">
-								<label
+						<tr class="address-2">
+								<td><label
 									for="address2Validate">
 									Address 2
-								</label>
-									<input 
+								</label></td>
+									<td
+									colspan="5"><input 
 										type="address" 
 										name="address"
 										autocomplete="off"
@@ -369,21 +370,19 @@ Description: Creating patient registration form
 										minlength="2"
 										maxlength="30"
 									>
-									</input>
-							</td>
+									</input></td>
 							<td>
 								<span class="errMsg" id="address2ErrorMsg"></span>
 							</td>
 						</tr>
-						<tr>
-							<td class="address">
-								<label
+						<tr class="address">
+								<td><label
 									for="cityValidate" 
 									id="required"
 								>
 									City
-								</label>
-									<input 
+								</label></td>
+									<td><input 
 										type="text" 
 										name="city" 
 										class="city"
@@ -395,33 +394,33 @@ Description: Creating patient registration form
 										maxlength="30"
 										required
 									>
-									</input>
+									</input></td>
 								
 								<!-- Making  the label and selection drop down list to pick the states-->
-								<label 
+								<td><label 
 									for="state"
 									class="statetxt"
 									id="required"
 								>
 									State
-								</label>
-									<select 
+								</label></td>
+									<td><select 
 										name="state" 
 										id="state" 
 										class="state"
 										title="Click on dropdown menu and select your state"
 										required
 									>
-									</select>
+									</select></td>
 							
-								<label
+								<td><label
 									for="zipValidate"
 									class="ziptxt"
 									id="required"
 								>
 									Zipcode
-								</label>
-									<input 
+								</label></td>
+									<td><input 
 										type="text" 
 										name="zip" 
 										class="zip"
@@ -434,22 +433,20 @@ Description: Creating patient registration form
 										maxlength="10"
 										required
 									>
-									</input>
-							</td>
+									</input></td>
 							<td>
 								<span class="errMsg" id="cityErrorMsg"></span>
 								<span class="errMsg" id="zipErrorMsg"></span>
 							</td>
 						</tr>
-						<tr>
-							<td class="address">
-								<label 
+						<tr class="address">
+								<td><label 
 									for="phoneValidate"
 									id="required"
 								>
 									Phone
-								</label>
-									<input 
+								</label></td>
+									<td><input 
 										type="phone" 
 										name="phone"
 										autocomplete="off"
@@ -464,17 +461,18 @@ Description: Creating patient registration form
 										maxlength="12"
 										required
 									>
-									</input>
+									</input></td>
 								
 								<!-- Creating radio buttons for the home or mobile phone number-->
-									<input 
+									<td><input 
 										type="radio" 
 										class="phonetype" 
 										name="phonetype1" 
 										value="home"
 									>
 										Home
-									</input>
+									</input></td>
+									<td>
 									<input 
 										type="radio" 
 										class="phonetype" 
@@ -482,16 +480,16 @@ Description: Creating patient registration form
 										value="mobile"
 									>
 										Mobile
-									</input>
+									</input></td>
 								<!--Adding in email with email type so it requires the @ symbol-->
-								<label
+								<td><label
 									for="emailValidate"
 									class="emailtext"
 									id="required"
 								>
 									Email Address
-								</label>
-									<input 
+								</label></td>
+									<td><input 
 										type="email" 
 										name="email"
 										autocomplete="off"
@@ -505,18 +503,18 @@ Description: Creating patient registration form
 										maxlength="30"
 										required
 									>
-									</input>
-							</td>
+									</input></td>
 							<td>
 									<span class="errMsg" id="phoneErrorMsg"></span>
 									<span class="errMsg" id="emailErrorMsg"></span>
-
 							</td>
 						</tr>
 					</tbody>
-				</table>		
+				</table>	
+				<table>
 			<hr>
 				<!-- Creating section header for the Emergency Contact Information-->
+				</table>	
 				<table>
 					<tr>
 						<th 
@@ -527,16 +525,18 @@ Description: Creating patient registration form
 						</th>
 					</tr>
 				</table>
+				<table>
 			<hr>			
+				</table>
 				<table>	
 					<tbody>
-						<tr>
-							<td class="e-contact">
-								<label
+						<tr class="e-contact">
+								<td><label
 									for="ecFnameValidate">
 									First Name
-								</label>
-									<input 
+								</label></td>
+									<td
+									colspan="2"><input 
 										type="text" 
 										name="econtact-Fname" 
 										class="e-contactname"
@@ -548,13 +548,13 @@ Description: Creating patient registration form
 										minlength="2" 
 										maxlength="30"
 									>
-									</input>
+									</input></td>
 							
-								<label
+								<td><label
 									for="ecLnameValidate">
 									Last Name
-								</label>
-									<input 
+								</label></td>
+									<td colspan="2"><input 
 										type="text" 
 										name="econtact-Lname" 
 										class="e-contactname"
@@ -566,20 +566,18 @@ Description: Creating patient registration form
 										minlength="2"
 										maxlength="30"
 									>
-									</input>
-							</td>
+									</input></td>
 							<td>
 								<span class="errMsg" id="ecFnameErrorMsg"></span>
 								<span class="errMsg" id="ecLnameErrorMsg"></span>
 							</td>
 						</tr>
-						<tr>
-							<td class="e-contactinfo">
-								<label
+						<tr class="e-contactinfo">
+								<td><label
 									for="ecPhoneValidate">
 									Phone
-								</label>
-									<input 
+								</label></td>
+									<td><input 
 										type="phone" 
 										name="econtact-Phonenum"
 										autocomplete="off"
@@ -593,33 +591,33 @@ Description: Creating patient registration form
 										minlength="10"
 										maxlength="12"
 									>
-									</input>
+									</input></td>
 								
 								<!-- Creating radio buttons for the home or mobile phone number-->
-									<input 
+									<td><input 
 										type="radio" 
 										class="phonetype" 
 										name="econtactPhone" 
 										value="home"
 									>
 										Home
-									</input>
-									<input 
+									</input></td>
+									<td><input 
 										type="radio" 
 										class="phonetype" 
 										name="econtactPhone" 
 										value="mobile"
 									>
 										Mobile
-									</input>
+									</input></td>
 							
-								<label 
+								<td><label 
 									for="ecEmailValidate"
 									class="emailtext"
 								>
 									Email Address
-								</label>
-									<input 
+								</label></td>
+									<td><input 
 										type="email" 
 										name="econtact-Email"
 										autocomplete="off" 
@@ -631,8 +629,7 @@ Description: Creating patient registration form
 										placeholder="Email@Domain.com"
 										title="Example: Email@Domain.com"
 									>
-									</input>
-							</td>
+									</input></td>
 							<td>
 								<span class="errMsg" id="ecPhoneErrorMsg"></span>
 								<span class="errMsg" id="ecEmailErrorMsg"></span>
@@ -640,8 +637,10 @@ Description: Creating patient registration form
 						</tr>
 					</tbody>
 				<table>
+				<table>
 			<hr>
 				<!-- Creating section header for the Medical History-->
+				</table>
 				<table>
 					<tr>
 						<th 
@@ -652,161 +651,148 @@ Description: Creating patient registration form
 						</th>
 					</tr>
 				</table>
+				<table>
 			<hr>
+				</table>
 				<table>	
 					<tbody>
 						<tr>
-							<td>
-								<p 
-									class="instructions"
-								>
-									<em>Check below if you have had or currently have any of the following:</em>
-							</p>
+							<td class="instructions">
+								<em>Check below if you have had or currently have any of the following:</em>
 							</td>
 						</tr>
-						<tr>
+						<tr class="medhistory-1">
 							<!--Making checkboxes that user can check multiple boxes based on conditions they have in their 
 							medical history-->
-							<td class="medhistory-1">
-								
-								<input 
+								<td><input 
 									type="checkbox" 
 									name="chickenpox" 
 									id="chickenpox" 
 									class="medhist-checkbox"
 								>
-								</input>
-								<label
+								</input></td>
+								<td><label
 									for="chickenpox">
 									Chickenpox
-								</label>
-							<br>
-									
-								<input 
+								</label></td>
+
+								<td><input 
 									type="checkbox" 
 									name="measles" 
 									id="measles" 
 									class="medhist-checkbox"
 								>
-								</input>
+								</input></td>
 								
-								<label
+								<td><label
 									for="measles">
 									Measles
-								</label>
-							<br>	
+								</label></td>
 						
-								<input 
+								<td><input 
 									type="checkbox" 
 									name="blackplague" 
 									id="blackplague" 
 									class="medhist-checkbox"
 								>
-								</input>
-								<label
+								</input></td>
+								<td><label
 									for="blackplague">
 									Black Plague
-								</label>
-							<br>
+								</label></td>
 							
-								<input 
+								<td><input 
 									type="checkbox" 
 									name="Cooties" 
 									id="Cooties" 
 									class="medhist-checkbox"
 								>
-								</input>
-								<label
+								</input></td>
+								<td><label
 									for="Cooties">
 									Cooties
-								</label>
-							<br>	
+								</label></td>
 					
-								<input 
+								<td><input 
 									type="checkbox" 
 									name="mental-illness" 
 									id="mental-illness" 
 									class="medhist-checkbox"
 								>
-								</input>
-								<label
+								</input></td>
+								<td><label
 									for="mental-illness">
 									Mental Illness
-								</label>
-							</td>	
+								</label></td>
 						</tr>
-						<tr>
-							<td class="medhistory-1">
+						<tr class="medhistory-1">
 							
-								<input 
+								<td><input 
 									type="checkbox" 
 									name="hypertension" 
 									id="hypertension" 
 									class="medhist-checkbox"
 								>
-								</input>
-								<label
+								</input></td>
+								<td><label
 									for="hypertension">
 									Hypertension
-								</label>
-							<br>	
+								</label></td>	
 								
-								<input 
+								<td><input 
 									type="checkbox" 
 									name="thyroid" 
 									id="thyroid" 
 									class="medhist-checkbox"
 								>
-								</input>
-								<label
+								</input></td>
+								<td><label
 									for="thyroid">
 									Thyroid Issues
-								</label>
-							<br>
+								</label></td>
 								
-								<input 
+								<td><input 
 									type="checkbox" 
 									name="diabetes" 
 									id="diabetes" 
 									class="medhist-checkbox"
 								>
-								</input>
-								<label
+								</input></td>
+								<td><label
 									for="diabetes">
 									Diabetes
-								</label>
-							<br>
+								</label></td>
 								
-								<input 
+								<td><input 
 									type="checkbox" 
 									name="heartdisease" 
 									id="heartdisease" 
 									class="medhist-checkbox"
 								>
-								</input>
-								<label
+								</input></td>
+								<td><label
 									for="heartdisease">
 									Heart Disease
-								</label>
-							<br>
+								</label></td>
 								
-								<input 
+								<td><input 
 									type="checkbox" 
 									name="anxiety" 
 									id="anxiety" 
 									class="medhist-checkbox"
 								>
-								</input>
-								<label
+								</input></td>
+								<td><label
 									for="anxiety">
 									Anxiety
-								</label>
-							</td>
+								</label></td>
 						</tr>
 					</tbody>
 				</table>
+				<table>
 			<hr>
 				<!-- Creating section header for the Current Health Issues-->
+				</table>
 				<table>
 					<tr>
 						<th 
@@ -817,16 +803,14 @@ Description: Creating patient registration form
 						</th>
 					</tr>
 				</table>
+				<table>
 			<hr>
+				</table>
 				<table>
 					<tbody>
 						<tr>
-							<td>
-								<p 
-									class="health"
-								>
+							<td class="health">
 									<em>Briefly describe any current health issues:</em>
-								</p>
 							</td>
 						</tr>
 						<tr>
@@ -842,23 +826,27 @@ Description: Creating patient registration form
 									title="Please describe any current health issues"
 								>
 								</textarea>
-															
-								<p
-									class="health-slider"
-								>
-								<em>On a scale of 1 to 10, 10 being the best, how would you rate your overall health?<em>
-								</p>
-								
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<table>
+					<tbody>
+						<tr>
+							<td class="health-slider">
+							<em>On a scale of 1 to 10, 10 being the best, how would you rate your overall health?<em></em>
+							</td>
+						</tr>
+						<tr id="slider">
 								<!--Creating range slider with min value of 0 and max value of 10-->
-								<div id="slider">
-									<label 
+									<td><label 
 										for="health-slide"
 										class="slider-start"
 									>
 										<em>Not healthy<em>
-									</label>
+									</label></td>
 
-									<input
+									<td><input
 										type="range"
 										id="health-slide"
 										name="healthSlider"
@@ -868,21 +856,21 @@ Description: Creating patient registration form
 										step="1"
 										title="Slide from left to right based on how you would rate your overall health"
 									>
-									</input>
+									</input></td>
 									<span class="sliderNumbers" id="sliderNums"></span>
 									<!--Adding in text on each end of the slider to show what each side means to the user-->
-									<label 
+									<td><label 
 										for="health-slide"
 										class="slider-end">
 										<em>Very healthy<em>
-									</label>
-								</div>
-							</td>
+									</label></td>
 						</tr>
 					</tbody>	
-				</table>		
+				</table>	
+				<table></table>	
 			<hr>
 				<!-- Creating section header to Create Account-->
+				</table>	
 				<table>
 					<tr>
 						<th 
@@ -893,19 +881,20 @@ Description: Creating patient registration form
 						</th>
 					</tr>
 				</table>
+				<table>
 			<hr>
+				</table>
 				<table>	
 					<tbody>
-						<tr>
+						<tr class="instructions">
 							<!--Adding class of instructions so I can style and resize the password instructions-->
-							<td class="instructions">
-								<label
+								<td><label
 									for="userIdValidate"
 									id="required"
 								>	
 									Username
-								</label>
-									<input 
+								</label></td>
+									<td><input 
 										type="text" 
 										name="userName"
 										autocomplete="off" 
@@ -918,19 +907,20 @@ Description: Creating patient registration form
 										maxlength="30"
 										required
 									>
-									</input>
-							</td>
+									</input></td>
 							<td>
 								<span class="errMsg" id="userIdErrorMsg"></span>
 							</td>
+						</tr>
 					</tbody>
 				</table>
 				<table>
 					<tbody>
+						<tr class="instructions">
+							<td id="pass-text"> Password Requirements:</td>
 						</tr>
-						<tr>
-							<td class="instructions">
-									<p id="pass-text">Password Requirements:<p>
+						<tr class="instructions">
+							<td>
 									<div id="reqmstr">
 										<div id="req1">
 											<li>
@@ -959,15 +949,14 @@ Description: Creating patient registration form
 									</div>
 							</td>	
 						</tr>
-						<tr>
-							<td class="password">
-								<label
+						<tr class="password">
+								<td><label
 									for="passwordValidate"
 									id="required"
 								>
 									Password
-								</label>
-									<input 
+								</label></td>
+									<td><input 
 										type="password" 
 										name="password" 
 										id="passwordValidate"
@@ -980,15 +969,15 @@ Description: Creating patient registration form
                     maxlength="32" 
 										required
 									>
-									</input>
-								<label
+									</input></td>
+								<td><label
 									for="repeatPassword"
 									class="repeatPassword"
 									id="required"
 								>
 									Confirm Password
-								</label>
-									<input 
+								</label></td>
+									<td><input 
 										type="password" 
 										name="repeatPassword" 
 										id="repeatPassword"
@@ -1002,41 +991,35 @@ Description: Creating patient registration form
                     maxlength="32"
 										required
 									>
-									</input>
-							</td>
+									</input></td>
 						</tr>
-						<tr>
+					</tbody>						
+				</table>
+						<div class="buttons">
 
 							<!--Creating the submit and reset buttons. Added in the script to connect the submit button to
 							the thank-you page below-->
-							<td class="buttons">
-								<button 
+							<td><button 
 									type="button"
 									id="review"
 									value="Review"
 									onclick="reviewData()"
 								>
 								Review
-								</button>
-
-								<button 
+								</button></td>
+							<td><button 
 									type="submit"
 									id="submit"
 								>
 									Submit
-								</button>
-																	
-								<button 
+								</button></td>									
+							<td><button 
 									type="reset"
 									id="clearButton"
 								>
 									Clear and Start Over
-								</button>
-								
-							</td>	
-						</tr>
-					</tbody>						
-				</table>
+								</button></td>	
+							</div>
 
 				<!--Placeholder to bring in the footer-->
       <div id="footerPlaceholder"></div>
