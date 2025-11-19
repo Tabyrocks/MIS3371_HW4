@@ -17,38 +17,36 @@ body{
 Adding padding so that text will fit nicely in the form*/
 form{
 	background-color:#3B4F62;
-	margin-top: 5%;
-	margin-bottom: 5%;
-	margin-right: 15%;
-	margin-left: 15%;
-	padding-top: 3%;
+	display: block;
+	min-width: fit-content;
+	margin-top: 3vw;
+	margin-bottom: 3vw;
+	margin-right: 9vw;
+	margin-left: 9vw;
+	padding-top: 3vw;
 	padding-bottom: 4%;
 	padding-left: 5%;
 	padding-right: 5%;
-	min-width: fit-content;
 	text-wrap: none;
 }
 
 table{
 	width: 100%;
 	text-align: left;
-	font-size: 40px;
-
+	font-size: 2.75vw;
+	min-width: fit-content;
 }
 
-table.form-table {
-	width: 100%;
-	border-collapse: collapse;
-	table-layout: fixed;
-}
 /*Putting the date in the header to align on the bottom right corner of header.*/
 .todaydate{
-	font-size: 20px;
+	font-size: 1.25vw;
+	position: absolute right;
+	margin-left: auto;
 }
 
 /*Making section headers a different color and size to make them stand out*/
 .form-headers{
-	font-size: 20px;
+	font-size: 1.15vw;
 	color: #8DBCD6;
 }
 
@@ -59,16 +57,9 @@ table.form-table {
 
 /*Resizing the header image to fit better in the header*/
 img{
-	width: 120px;
+	width: 6.5vw;
 }
 
-/*Resizing the input boxes and adding margin for the outside of the boxes and padding for inside the boxes*/
-input{
-	height: 100%;
-	max-width: 90%;
-	padding: 5px;
-	text-size: 18px;
-}
 
 /*Setting up the focus when user clicks in one of the text boxes*/
 input[type=email]:focus,
@@ -101,7 +92,15 @@ input[type=email]:focus,
 .slider-end, 
 .footer, 
 .currentDate {
-	font-size: 18px;
+	font-size: .85vw;
+}
+
+/*Resizing the input boxes and adding margin for the outside of the boxes and padding for inside the boxes*/
+input{
+	height: 100%;
+	max-width: 90%;
+	padding: 5px;
+	font-size: .75vw;
 }
 
 .errMsg {
@@ -359,17 +358,26 @@ button:hover{
 
 /*Styling the social media links so they are aligned to the right and have spacing*/
 #links{
-	align-items: bottom;
-	margin-left: 65%;
-	padding: 16px;
+	display:block;
+	white-space: nowrap;
+	position: absolute right;
+	margin-left: auto;
+	padding: 2vw;
 }
 #fb, #linkedin, #twitter {
-	height: 40px;
-	width: auto;
+	height: auto;
+	max-width: 2.5vw;
+	min-width: auto;
 }
 
-.footer-lines {
-	margin-top: 15px;;
+#fb:hover, #linkedin:hover, #twitter:hover {
+	opacity: 0.7;
+}
+
+.footer-text {
+	display: inline-block;
+	white-space: nowrap;
+	min-width: auto;
 }
 
 #fnameErrorMsg, 
