@@ -250,16 +250,22 @@ and adjust the font size and width*/
 	font-weight: bold;
 }
 
-#username{
-	width: 40%;
-}
+
 
 #pass-text{
-	display: flex;
+	display: block;
 	color:#8DBCD6;
 	font-weight: bold;
+	padding: 0px;
 	margin-top:30px;
 }
+
+.password{
+	display: flex;
+  align-items: center;
+  gap: 20px;           /* small space between label and input */
+  flex-wrap: wrap;    /* allows smaller screens to wrap nicely */
+}	
 
 #reqmstr{
 	display: flex;
@@ -289,14 +295,10 @@ li {
 	margin-right: 60px;
 }
 
-
 .instructions{
 	display: block;
 }
 
-.other {
-	color: white;
-}
 
 /* Changes the color of the password requirements to green when it matches requirements*/
 .valid {
