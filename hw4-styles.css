@@ -73,6 +73,7 @@ input[type=email]:focus,
 	background-color: lightblue;
 }
 
+
 /*Assigning font-size to the input labels*/
 .ptname, 
 .ptinfo, 
@@ -80,7 +81,9 @@ input[type=email]:focus,
 .address-2, 
 .e-contact, 
 .e-contactinfo, 
-.instructions, 
+.username,
+.instructions,
+.medhistory, 
 .medhistory-1, 
 .medhistory-2, 
 .health, 
@@ -179,26 +182,30 @@ input{
 	padding: 0px;
 }
 
-/*To be able to make the med history checkboxes align, I added a flex box with flex direction as row*/
+/*To be able to make the medhistory checkboxes align, I added a flex box with flex direction as row*/
 .medhistory-1{
-	display: flex;
+  display: flex;
 	flex-direction: row;
-	width: 94%;
-	align-items: center;
-	padding-top: 14px;
-	padding-bottom: 12px;
+	width: 90%;
+  gap: 16px;              /* adding space between items */
+  justify-content: space-between; /* spreading the items across the row */
+  align-items: center;
+  flex-wrap: nowrap;        /* wrap to next line on small screens */
+  padding-top: 14px;
+  padding-bottom: 12px;
 }
 
-.medhist-checkbox{
-	height: 18px;
-}
+
 .medhistory-2{
-	display: flex;
+  display: flex;
 	flex-direction: row;
-	width: 100%;
-	align-items: center;
-	padding-top: 12px;
-	padding-bottom: 20px;
+	width: 90%;
+  gap: 16px;              /* adding space between items */
+  justify-content: space-between; /* spreading the items across the row */
+  align-items: center;
+  flex-wrap: nowrap;        /* wrap to next line on small screens */
+  padding-top: 14px;
+  padding-bottom: 12px;
 }
 /*Styling the textarea box, set up as a flex box, added padding, have a different background color 
 and adjust the font size and width*/
@@ -270,7 +277,6 @@ and adjust the font size and width*/
 	display: flex;
 	flex-direction: row;
 	flex-wrap: none;
-	margin-bottom: 30px;
 }
 
 /*Aligning the password requirements so they are spread out evenly and the bullet points are next to the words*/
@@ -285,15 +291,19 @@ li {
 	margin-left: 40px;
 }
 
-#password{
-	width: 20%;
-}
-#repeat-password{
-	width: 20%
+.username{
+	display: block;
 }
 
-.repeat-password{
-	margin-left: 20px;
+#userIdValidate{
+	width: 100%;
+	margin-left:30px;
+	margin-right: 60px;
+}
+
+
+.instructions{
+	display: block;
 }
 
 .other {
@@ -324,6 +334,7 @@ button{
     width: auto;
     min-width: 120px;
     height: 48px;
+		margin: 10px;
 }
 
 /*Created a different color for the submit and reset buttons so it would be easier to see which you a clicking on*/
@@ -412,6 +423,11 @@ button:hover{
 
 .sliderNumbers {
 	text-align: bottom;
+}
+
+#userIdErrorMsg {
+	margin-left: 30px;
+	margin-right: 80px;
 }
 	
 #infoReview	{
