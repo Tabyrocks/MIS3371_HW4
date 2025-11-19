@@ -632,4 +632,14 @@ function reviewData() {
     }
 }
 
+function setCookie() {
+    document.cookie = "firstName=John; expires=Fri, 31 Dec 2024 23:59:59 GMT; path=/";
+    console.log("Cookies: " + cookies);
+    return cookies;
+}
 
+function getCookie() {
+    let cookies = document.cookie;
+    console.log("Cookies: " + cookies);
+    return cookies;
+}
