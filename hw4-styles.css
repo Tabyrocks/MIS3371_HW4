@@ -102,7 +102,7 @@ input{
 	height: 100%;
 	max-width: 90%;
 	padding: 5px;
-	font-size: 12px;
+	font-size: 13px;
 }
 
 .errMsg {
@@ -124,14 +124,6 @@ input{
 }
 
 /*Creating several entries to have the boxes/labels fit correctly and align together*/
-
-.midname{
-	width: 70%;
-}
-
-#ssnValidate{
-	width: 70%;
-}
 
 #dobValidate{
 	width: 100%;
@@ -168,7 +160,7 @@ input{
 	width: 100%;
 }
 .state{
-	width: 60%;
+	width: 80%;
 	color: gray;
 }
 
@@ -177,9 +169,15 @@ input{
 }
 
 .phonetype{
-	width: 5%;
-	height: 15px;
-	padding: 0px;
+	display: inline-block;
+	margin-right: 5px;
+	width: 12%;
+	padding: 5px;
+}
+
+.medhistory{
+	font-weight: bold;
+	color: #8DBCD6;
 }
 
 /*To be able to make the medhistory checkboxes align, I added a flex box with flex direction as row*/
@@ -193,6 +191,7 @@ input{
   flex-wrap: nowrap;        /* wrap to next line on small screens */
   padding-top: 14px;
   padding-bottom: 12px;
+	margin-top: 10px;
 }
 
 /*Styling the textarea box, set up as a flex box, added padding, have a different background color 
@@ -250,8 +249,6 @@ and adjust the font size and width*/
 	font-weight: bold;
 }
 
-
-
 #pass-text{
 	display: block;
 	color:#8DBCD6;
@@ -264,8 +261,10 @@ and adjust the font size and width*/
 	display: flex;
   align-items: center;
   gap: 20px;           /* small space between label and input */
-  flex-wrap: wrap;    /* allows smaller screens to wrap nicely */
+  flex-wrap: nowrap;    /* allows smaller screens to wrap nicely */
 }	
+
+/*Aligning the password requirements so they are spread out evenly and the bullet points are next to the words*/
 
 #reqmstr{
 	display: flex;
@@ -273,17 +272,6 @@ and adjust the font size and width*/
 	flex-wrap: none;
 }
 
-/*Aligning the password requirements so they are spread out evenly and the bullet points are next to the words*/
-ul {
-	padding-left: 5px;
-}
-
-li {
-	margin-right: 70px;
-}
-#req1{
-	margin-left: 40px;
-}
 
 .username{
 	display: block;
@@ -317,7 +305,7 @@ textarea {
   width: 100%;
   box-sizing: border-box;
   padding: 6px;
-  margin: 4px 0;
+  margin: 4px 2px;
 }
 
 button{
