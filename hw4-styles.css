@@ -60,7 +60,6 @@ img{
 	width: 90px;
 }
 
-
 /*Setting up the focus when user clicks in one of the text boxes*/
 input[type=email]:focus,
 [type=password]:focus,
@@ -139,30 +138,29 @@ input{
 }
 
 .gender {
-	margin: 10px;
-	width: 4%;
-	height: 16px;
+	display: inline-block;
+	margin-right: 8px;
+	width: 10%;
+	padding: 0px;
 }
 
 .primelang {
-	margin: 0px;
-	width: 5%;
-	height: 18px;
+	display: inline-block;
+	margin-right: 1px;
+	width: 8%;
 	padding: 0px;
 }
 
 .primelangtxt {
-	margin: 15px;
-	height: 18px;
-	padding-left: 10px;
+  margin-left: 6px;
+  display: inline-block;
 }
 
 .maritalstatus{
-	margin-top: 5px;
-	width: 5%;
-	height: 18px;
+	display: inline-block;
+	margin-right: 5px;
+	width: 8%;
 	padding: 0px;
-	margin-bottom: 15px;
 }
 
 .address,
@@ -185,7 +183,7 @@ input{
 }
 
 /*To be able to make the medhistory checkboxes align, I added a flex box with flex direction as row*/
-.medhistory-1{
+.medhistory-1, .medhistory-2{
   display: flex;
 	flex-direction: row;
 	width: 90%;
@@ -197,18 +195,6 @@ input{
   padding-bottom: 12px;
 }
 
-
-.medhistory-2{
-  display: flex;
-	flex-direction: row;
-	width: 90%;
-  gap: 16px;              /* adding space between items */
-  justify-content: space-between; /* spreading the items across the row */
-  align-items: center;
-  flex-wrap: nowrap;        /* wrap to next line on small screens */
-  padding-top: 14px;
-  padding-bottom: 12px;
-}
 /*Styling the textarea box, set up as a flex box, added padding, have a different background color 
 and adjust the font size and width*/
 .health-form{
