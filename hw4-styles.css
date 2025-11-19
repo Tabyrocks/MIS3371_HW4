@@ -33,20 +33,20 @@ form{
 table{
 	width: 100%;
 	text-align: left;
-	font-size: 2.75vw;
+	font-size: 40px;
 	min-width: fit-content;
 }
 
 /*Putting the date in the header to align on the bottom right corner of header.*/
 .todaydate{
-	font-size: 1.25vw;
+	font-size: 18px;
 	position: absolute right;
 	margin-left: auto;
 }
 
 /*Making section headers a different color and size to make them stand out*/
 .form-headers{
-	font-size: 1.15vw;
+	font-size: 18px;
 	color: #8DBCD6;
 }
 
@@ -57,7 +57,7 @@ table{
 
 /*Resizing the header image to fit better in the header*/
 img{
-	width: 6.5vw;
+	width: 90px;
 }
 
 
@@ -92,7 +92,7 @@ input[type=email]:focus,
 .slider-end, 
 .footer, 
 .currentDate {
-	font-size: .85vw;
+	font-size: 16px;
 }
 
 /*Resizing the input boxes and adding margin for the outside of the boxes and padding for inside the boxes*/
@@ -100,7 +100,7 @@ input{
 	height: 100%;
 	max-width: 90%;
 	padding: 5px;
-	font-size: .75vw;
+	font-size: 12px;
 }
 
 .errMsg {
@@ -122,7 +122,11 @@ input{
 /*Creating several entries to have the boxes/labels fit correctly and align together*/
 
 .midname{
-	width: 60%;
+	width: 70%;
+}
+
+#ssnValidate{
+	width: 70%;
 }
 
 #dobValidate{
@@ -130,10 +134,9 @@ input{
 }
 
 .gender {
-	margin: 0;
+	margin: 10px;
 	width: 4%;
-	height: 18px;
-	padding: 0px;
+	height: 16px;
 }
 
 .primelang {
@@ -172,7 +175,7 @@ input{
 
 .phonetype{
 	width: 5%;
-	height: 18px;
+	height: 15px;
 	padding: 0px;
 }
 
@@ -320,22 +323,21 @@ button[type=button]{
 	background-color: rgb(65, 155, 220);
 	border: solid gray;
 	font-weight: bold;
-	font-size: 16px;
+	font-size: 15px;
 }
 
 button[type=submit]{
 	background-color: lightblue;
 	border: solid gray;
 	font-weight: bold;
-	font-size: 16px;
+	font-size: 15px;
 }
 
 button[type=reset]{
 	background-color: black;
 	border: solid black;
 	color: rgb(247, 84, 84);
-	
-	font-size: 16px;
+	font-size: 15px;
 }
 
 button:hover{
