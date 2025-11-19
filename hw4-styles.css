@@ -118,6 +118,8 @@ input{
 
 /*Creating the Red asterisk for the required fields*/
 #required:after{
+	display: inline;
+	position: relative;
 	content: "*";
 	color: red;
 }
