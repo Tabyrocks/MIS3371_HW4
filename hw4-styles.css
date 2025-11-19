@@ -21,8 +21,8 @@ form{
 	min-width: fit-content;
 	margin-top: 3vw;
 	margin-bottom: 3vw;
-	margin-right: 9vw;
-	margin-left: 9vw;
+	margin-right: 15vw;
+	margin-left: 15vw;
 	padding-top: 3vw;
 	padding-bottom: 4%;
 	padding-left: 5%;
@@ -40,7 +40,7 @@ table{
 /*Putting the date in the header to align on the bottom right corner of header.*/
 .todaydate{
 	font-size: 18px;
-	position: absolute right;
+	position: right;
 	margin-left: auto;
 }
 
@@ -368,7 +368,7 @@ button:hover{
 }
 #fb, #linkedin, #twitter {
 	height: auto;
-	max-width: 2.5vw;
+	max-width: 40px;
 	min-width: auto;
 }
 
