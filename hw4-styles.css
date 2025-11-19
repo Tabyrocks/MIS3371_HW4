@@ -218,8 +218,9 @@ and adjust the font size and width*/
 }
 
 .health-slider{
+	font-weight: bold;
 	margin-top: 20px;
-	margin-bottom: 25px;
+	margin-bottom: 10px;
 }
 
 /*Slider is assigned inline box with different background, added a border, padding and some margin*/
@@ -230,6 +231,7 @@ and adjust the font size and width*/
 	color: black;
 	padding-left: 15px;
 	padding-right: 15px;
+	padding-top: 15px;
 	padding-bottom: 15px;
 	margin-left: 20%;
 }
@@ -237,9 +239,15 @@ and adjust the font size and width*/
 #health-slide{
 	vertical-align: center;
 	height: 0px;
-	width: 30%;
-	margin-bottom: 50px;
-	
+	width: 100%;
+}
+
+.slider-start{
+	padding-right: 15px;
+}
+
+.slider-end{
+	padding-left: 10px;
 }
 
 #sliderNums {
