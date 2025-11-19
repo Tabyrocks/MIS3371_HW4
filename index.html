@@ -221,13 +221,17 @@ Description: Creating patient registration form
 								<span class="errMsg" id="ssnErrorMsg"></span>
 							</td>
 						</tr>
+					</tbody>
+				</table>
+				<table>
+					<tbody>
 						<tr class="ptlang">
 								<td><label 
 									class="primelang"
 								>
 									Primary Language
-								</label></td>
-								<td colspan="2">
+								</label>
+								
 									<input 
 										type="radio" 
 										class="primelang" 
@@ -236,6 +240,8 @@ Description: Creating patient registration form
 									>
 										English
 									</input>
+								
+								
 									<input 
 										type="radio" 
 										class="primelang" 
@@ -244,6 +250,8 @@ Description: Creating patient registration form
 									>
 										Spanish
 									</input>
+								
+								
 									<input 
 										type="radio" 
 										class="primelang" 
@@ -251,27 +259,33 @@ Description: Creating patient registration form
 										value="other"
 									>
 										Other:
-									</input>
-								</td>
-								<td>
-								<!-- Adding input text box to freely type in an other language-->
-									<input 
+										<span class="primelangtxt">									
+										<input 
 										type="text" 
 										class="primelangtxt"
 										name="primeLang-Txt"
 										title="If other button is picked - Type in your language" 
 										name="othertxt"
 									>
+									</input></span>
 									</input>
+								
+								<td>
+								<!-- Adding input text box to freely type in an other language-->
+
 							</td>	
 						</tr>
+					</tbody>
+				</table>
+				<table>
+					<tbody>
 						<tr class="ptmarital">
 								<td><label  
 									class="maritalstatus"
 								>
 									Marital Status
-								</label></td>
-									<td><input 
+								</label>
+									<input 
 										type="radio" 
 										class="maritalstatus" 
 										name="maritalstatus" 
@@ -302,7 +316,8 @@ Description: Creating patient registration form
 										value="widowed"
 									>
 										Widowed
-									</input></td>	
+									</input>
+								</td>	
 						</tr>
 					</tbody>
 				</table>
