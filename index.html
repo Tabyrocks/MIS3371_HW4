@@ -226,7 +226,8 @@ Description: Creating patient registration form
 				<table>
 					<tbody>
 						<tr class="ptlang">
-								<td><label 
+							<td>
+								<label 
 									class="primelang"
 								>
 									Primary Language
@@ -241,7 +242,6 @@ Description: Creating patient registration form
 										English
 									</input>
 								
-								
 									<input 
 										type="radio" 
 										class="primelang" 
@@ -250,8 +250,7 @@ Description: Creating patient registration form
 									>
 										Spanish
 									</input>
-								
-								
+
 									<input 
 										type="radio" 
 										class="primelang" 
@@ -259,6 +258,7 @@ Description: Creating patient registration form
 										value="other"
 									>
 										Other:
+										<!-- Adding input text box to freely type in an other language-->
 										<span class="primelangtxt">									
 										<input 
 										type="text" 
@@ -266,13 +266,8 @@ Description: Creating patient registration form
 										name="primeLang-Txt"
 										title="If other button is picked - Type in your language" 
 										name="othertxt"
-									>
+										>
 									</input></span>
-									</input>
-								
-								<td>
-								<!-- Adding input text box to freely type in an other language-->
-
 							</td>	
 						</tr>
 					</tbody>
@@ -280,7 +275,8 @@ Description: Creating patient registration form
 				<table>
 					<tbody>
 						<tr class="ptmarital">
-								<td><label  
+							<td>
+								<label  
 									class="maritalstatus"
 								>
 									Marital Status
@@ -317,7 +313,7 @@ Description: Creating patient registration form
 									>
 										Widowed
 									</input>
-								</td>	
+							</td>	
 						</tr>
 					</tbody>
 				</table>
@@ -486,8 +482,8 @@ Description: Creating patient registration form
 										value="home"
 									>
 										Home
-									</input>
-									
+									</input></td>
+									<td>
 									<input 
 										type="radio" 
 										class="phonetype" 
@@ -496,7 +492,7 @@ Description: Creating patient registration form
 									>
 										Mobile
 									</input></td>
-								<td></td>
+								
 								<!--Adding in email with email type so it requires the @ symbol-->
 								<td><label
 									for="emailValidate"
