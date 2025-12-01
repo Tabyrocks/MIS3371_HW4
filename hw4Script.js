@@ -632,14 +632,55 @@ function reviewData() {
     }
 }
 
-function setCookie() {
-    document.cookie = "firstName=John; expires=Fri, 31 Dec 2024 23:59:59 GMT; path=/";
-    console.log("Cookies: " + cookies);
-    return cookies;
+
+//Referencing https://www.w3schools.com/js/js_cookies.asp for the cookie functions
+//Function to set the cookie
+function setCookie(name, value, days) {
+    const cookieDate = new Date();
+    cookieDate.setTime(cookieDate.getTime() + (days * 24 * 60 * 60 * 1000));
+    document.cookie = `${name}=${value};expires=${cookieDate.toUTCString()};path=/`;
 }
 
-function getCookie() {
-    let cookies = document.cookie;
-    console.log("Cookies: " + cookies);
-    return cookies;
+//Function to get the cookie
+function getCookie(name) {
+    let fNameCookieMatch = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+    return fNameCookieMatch ? fNameCookieMatch[2] : "";
 }
+
+/*Checking if cookie is set and if so displaying welcome back message. 
+If not set, prompting user to enter their name to set the cookie.*/
+window.onload = function() {
+    const cookieName = 'userFirstName';
+    const storedFirstName = getCookie(cookieName);
+    const modal = document.getElementById("welcome");
+    const closeBtn = document.getElementById("closeModal");
+
+    if (!storedFirstName && modal) {
+      modal.style.display = "block";
+    }
+
+    if(closeBtn && modal) {
+      closeBtn.addEventListener("click", function() {
+        const fname1 = document.getElementById("fnameValidate");
+        const savedName = fname1 && fname1.value.trim() ? fname1.value.trim() : storedFirstName;
+        if (savedName) setCookie(cookieName, savedName, 30);
+        modal.style.display = "none";
+      });
+    }
+
+    const continueBtn = document.getElementById("continueBtn");
+    if (continueBtn && modal) {
+      continueBtn.addEventListener("click", function() {
+        const fname1 = document.getElementById("fnameValidate");
+        //if the cookie exists, it will prefill with the first name value
+        if (storedFirstName && fname1) fname1.value = storedFirstName;
+        modal.style.display = "none";
+        if (fname1) fname1.focus();
+      });
+    }
+    window.addEventListener("click", function(event) {
+      if (modal && event.target == modal) {
+        modal.style.display = "none";
+      }
+    });
+  };
