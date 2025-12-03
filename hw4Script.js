@@ -693,24 +693,35 @@ If not set, prompting user to enter their name to set the cookie.*/
     const modal = document.getElementById("welcome");
     const welcomeMsg = document.getElementById("welcomeMsg");
     const continueBtn = document.getElementById("continueBtn");
+    const closeModalBtn = document.getElementById("closeModal");
     const rememberMeCheckbox = document.getElementById("remember-Me");
     
     //Show the modal if the firstName cookie is found
     const storedFirstName = getCookie("firstName");
-    if (storedFirstName) {
+    if (storedFirstName !== "") {
       welcomeMsg.innerText = "Welcome back, " + storedFirstName + "!";
       modal.style.display = "block";
-
     }
 
     continueBtn.addEventListener("click", () => modal.style.display = "none");
+
+    getCookie("firstName") = firstName;
+
+    document.cookie = "firstName=" + firstName + ";path=/";
+
+    document.getElementById("closeModal").addEventListener("click", () => {
+      clearAllCookies();
+      location.reload();
+    });
+
+    closeModalBtn.addEventListener("click", () => modal.style.display = "none");
 
     (document.getElementById("closeModal")).addEventListener("click", () => {
       clearAllCookies();
       location.reload();
     });
+    
 
-  
   if (rememberMeCheckbox) {
       rememberMeCheckbox.addEventListener("change", function() {
       if (!this.checked) {
