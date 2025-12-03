@@ -628,9 +628,15 @@ function reviewData() {
     if (reviewOutput.length > 0) {
       reviewOutput += "</table>";
       document.getElementById("infoReview").innerHTML = reviewOutput;
-
     }
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+
+//Defining the inputs to be saved as cookies
+const inputs = [
+    { id: "fnameValidate", cookieName: "firstName" }
+];
 
 
 //Referencing https://www.w3schools.com/js/js_cookies.asp for the cookie functions
@@ -638,49 +644,88 @@ function reviewData() {
 function setCookie(name, value, days) {
     const cookieDate = new Date();
     cookieDate.setTime(cookieDate.getTime() + (days * 24 * 60 * 60 * 1000));
-    document.cookie = `${name}=${value};expires=${cookieDate.toUTCString()};path=/`;
+    let expireDate = "expires=" + cookieDate.toUTCString();
+    document.cookie = name + "=" + value + ";" + expireDate + ";path=/";  
 }
 
-//Function to get the cookie
+//Function to get the value of the cookie by the name. Will return empty string if cookie not found.
 function getCookie(name) {
-    let fNameCookieMatch = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
-    return fNameCookieMatch ? fNameCookieMatch[2] : "";
+    let cookieName = name + "=";
+    let cookies = document.cookie.split(';');
+    
+    for (let i = 0; i < cookies.length; i++) {
+        let cookie = cookies[i].trim();
+        if (cookie.indexOf(cookieName) == 0) {
+            return cookie.substring(cookieName.length, cookie.length);
+        }
+    }
+    return "";
 }
 
-/*Checking if cookie is set and if so displaying welcome back message. 
+function clearAllCookies() {
+    const cookies = document.cookie.split(";");
+    for (let cookie of cookies) {
+        const eqPos = cookie.indexOf("=");
+        const name = eqPos > -1 ? cookie.substr(0, eqPos).trim() : cookie.trim();
+        document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/";
+    }
+}
+
+//Prefilling out the form to auto populate the form fields using the cookie value. Loops through each input field defined in the inputs.
+inputs.forEach(function (input) {
+    const inputElement = document.getElementById(input.id);
+    if (!inputElement) return; //If the input element is not found, skip to the next iteration.
+
+    //prefilling the input fields
+    const cookieValue = getCookie(input.cookieName);
+    if (cookieValue) {
+        inputElement.value = cookieValue;
+    
+        inputElement.addEventListener("input", function() {
+            setCookie(input.cookieName, inputElement.value, 30);
+        });
+    }
+});
+
+    
+/*Checking if cookie is set and if so displaying welcome back message.
 If not set, prompting user to enter their name to set the cookie.*/
-window.onload = function() {
-    const cookieName = 'userFirstName';
-    const storedFirstName = getCookie(cookieName);
     const modal = document.getElementById("welcome");
-    const closeBtn = document.getElementById("closeModal");
-
-    if (!storedFirstName && modal) {
-      modal.style.display = "block";
-    }
-
-    if(closeBtn && modal) {
-      closeBtn.addEventListener("click", function() {
-        const fname1 = document.getElementById("fnameValidate");
-        const savedName = fname1 && fname1.value.trim() ? fname1.value.trim() : storedFirstName;
-        if (savedName) setCookie(cookieName, savedName, 30);
-        modal.style.display = "none";
-      });
-    }
-
+    const welcomeMsg = document.getElementById("welcomeMsg");
     const continueBtn = document.getElementById("continueBtn");
-    if (continueBtn && modal) {
-      continueBtn.addEventListener("click", function() {
-        const fname1 = document.getElementById("fnameValidate");
-        //if the cookie exists, it will prefill with the first name value
-        if (storedFirstName && fname1) fname1.value = storedFirstName;
-        modal.style.display = "none";
-        if (fname1) fname1.focus();
-      });
+    const rememberMeCheckbox = document.getElementById("remember-Me");
+    
+    //Show the modal if the firstName cookie is found
+    const storedFirstName = getCookie("firstName");
+    if (storedFirstName) {
+      welcomeMsg.innerText = "Welcome back, " + storedFirstName + "!";
+      modal.style.display = "block";
+
     }
-    window.addEventListener("click", function(event) {
-      if (modal && event.target == modal) {
-        modal.style.display = "none";
-      }
+
+    continueBtn.addEventListener("click", () => modal.style.display = "none");
+
+    (document.getElementById("closeModal")).addEventListener("click", () => {
+      clearAllCookies();
+      location.reload();
     });
-  };
+
+  
+  if (rememberMeCheckbox) {
+      rememberMeCheckbox.addEventListener("change", function() {
+      if (!this.checked) {
+          clearAllCookies();
+          console.log("All cookies cleared because 'Remember Me' is unchecked.");
+      } else {
+          inputs.forEach(input => {
+              const el = document.getElementById(input.id);
+              if(el && el.value.trim() !== "") {
+                  setCookie(input.cookieName, el.value, 30);
+              }
+          });
+          console.log("Cookies set because 'Remember Me' is checked.");
+      }
+      });
+      if(!rememberMeCheckbox.checked) clearAllCookies();
+  } 
+});
