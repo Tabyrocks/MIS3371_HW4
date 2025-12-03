@@ -39,7 +39,7 @@ Description: Creating patient registration form
 			<table>
 				<div id="welcome" class="welcomeModalBox">
 					<div class = "welcomeModalContent">
-						<h2>Welcome!</h2>
+						<h2 id="welcomeMsg">Welcome!</h2>
 						<p>Would you like to continue where you left off?</p>
 						<button 
 							id="continueBtn"
@@ -52,6 +52,15 @@ Description: Creating patient registration form
 							class="close" 
 							aria-label="Close"
 							>Start Over</button>
+							
+							<p>Remember Me:
+								<input
+									type="checkbox"
+									id="remember-Me"
+									name="remember-Me"
+									checked
+								>
+							</p>
 					</div>
 				</div>
 				<thead>
@@ -1066,8 +1075,9 @@ Description: Creating patient registration form
 									id="clearButton"
 								>
 									Clear and Start Over
-								</button></td>	
+								</button></td>
 						</div>
+						<br>	
 					<br>
 				<!--Placeholder to bring in the footer-->
       <div id="footerPlaceholder"></div>
