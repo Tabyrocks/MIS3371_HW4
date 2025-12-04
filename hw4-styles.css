@@ -509,7 +509,7 @@ button:hover{
 }
 
 #patientRegIframe {
-	width: 100%;
-	height: 850px;
+	width: 100vw;
+	height: 90vh;
 	border: none;
 }
