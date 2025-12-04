@@ -690,7 +690,7 @@ inputs.forEach(function (input) {
     
 /*Checking if cookie is set and if so displaying welcome back message.
 If not set, prompting user to enter their name to set the cookie.*/
-    const modal = document.getElementById("welcome");
+    const modal = document.getElementById("welcomeModalBox");
     const welcomeMsg = document.getElementById("welcomeMsg");
     const continueBtn = document.getElementById("continueBtn");
     const closeModalBtn = document.getElementById("closeModal");
