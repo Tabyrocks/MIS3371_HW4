@@ -5,6 +5,7 @@ Date created: 2025-11-05
 Description: Styling file for patient form
 */
 
+
 /*Setting background color and font family*/
 body{
 	background-color: #77A1B8;
@@ -24,7 +25,7 @@ form{
 	margin-right: 15vw;
 	margin-left: 15vw;
 	padding-top: 3vw;
-	padding-bottom: 4%;
+	padding-bottom: 3vw;
 	padding-left: 5%;
 	padding-right: 5%;
 	text-wrap: none;
@@ -260,7 +261,7 @@ and adjust the font size and width*/
 .password{
 	display: flex;
   align-items: center;
-  gap: 20px;           /* small space between label and input */
+  gap: 8px;           /* small space between label and input */
   flex-wrap: nowrap;    /* allows smaller screens to wrap nicely */
 }	
 
@@ -269,7 +270,15 @@ and adjust the font size and width*/
 #reqmstr{
 	display: flex;
 	flex-direction: row;
-	flex-wrap: none;
+	flex-wrap: nowrap;
+	gap: 0px;
+	margin-left: 40px
+
+}
+#reqmstr ul {
+	margin-right: 50px;
+	padding: 4px;
+	white-space: nowrap;
 }
 
 
@@ -346,6 +355,7 @@ button:hover{
 	background: #8DBCD6;
 }
 
+
 /*Styling the footer so it fits in a flex box and aligns as a row with padding*/
 .footer{
 	display: flex;
@@ -353,6 +363,17 @@ button:hover{
 	vertical-align: top ;
 	color: whitesmoke;
 	padding: 10px;
+	z-index: 9999;
+}
+
+.footerPlaceholder{
+	display: block;
+	position: fixed;
+	width: 80%;
+	bottom: 0;
+	height: auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
 /*Styling the social media links so they are aligned to the right and have spacing*/
@@ -478,3 +499,17 @@ button:hover{
 	cursor:pointer
 }
 
+/*Creating sticky header that stays at the top of the page when scrolling*/
+.sticky-header {
+	position: sticky;
+	top: 0px;
+	background-color: #3b4f62;
+	padding: 20px 0;
+	z-index: 9999;
+}
+
+#patientRegIframe {
+	width: 100%;
+	height: 850px;
+	border: none;
+}
