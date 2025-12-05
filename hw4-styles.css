@@ -456,7 +456,7 @@ button:hover{
 
 .welcomeModalBox {
 	display: none; /* Hidden by default */
-	position: fixed; /* Stay in place */
+	position: fixed; 
 	z-index: 10000; /* Sit on top */
 	left: 0;
 	top: 0;
