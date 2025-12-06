@@ -8,10 +8,17 @@ Description: Styling file for patient form
 
 /*Setting background color and font family*/
 body{
+	display: flex;
+	flex-direction: column;
 	background-color: #77A1B8;
 	min-width: fit-content;
+	min-height: 100vh;
 	color: white;
 	font-family: "Open Sans", sans-serif;
+}
+
+main{
+	flex-grow: 1;
 }
 
 /*Creating form that centers in the middle of the background color and changing the color of form.
@@ -20,12 +27,12 @@ form{
 	background-color:#3B4F62;
 	display: block;
 	min-width: fit-content;
-	margin-top: 3vw;
+	margin-top: 1vw;
 	margin-bottom: 3vw;
 	margin-right: 15vw;
 	margin-left: 15vw;
-	padding-top: 3vw;
-	padding-bottom: 3vw;
+	padding-top: 1vw;
+	padding-bottom: 1vw;
 	padding-left: 5%;
 	padding-right: 5%;
 	text-wrap: none;
@@ -355,6 +362,9 @@ button:hover{
 	background: #8DBCD6;
 }
 
+.buttons{
+	margin-bottom: 0px;
+}
 
 /*Styling the footer so it fits in a flex box and aligns as a row with padding*/
 .footer{
@@ -362,18 +372,26 @@ button:hover{
 	flex-direction: row;
 	vertical-align: top ;
 	color: whitesmoke;
-	padding: 10px;
+	padding: 0px 100px 50px 100px;
 	z-index: 9999;
 }
 
-.footerPlaceholder{
-	display: block;
-	position: fixed;
-	width: 80%;
-	bottom: 0;
-	height: auto;
-	margin-top: 20px;
-	margin-bottom: 20px;
+/*Creating fixed footer that stays at the bottom of the page when scrolling*/
+
+.fixed-footer {
+  position: fixed;
+  bottom: 0;
+  left: 15.56%;
+  width: 68.88%; /* Width of the footer */
+  height: 180px; /* Height of the footer */
+	background-color: #3b4f62;
+  box-sizing: border-box;
+  z-index: 9999;
+}
+
+.footerPlaceholder {
+	height: 150px; /* Height of the footer */
+
 }
 
 /*Styling the social media links so they are aligned to the right and have spacing*/
@@ -433,10 +451,11 @@ button:hover{
 	color: whitesmoke(47, 44, 44);
 	font-size: 12px;
 	padding-top: 20px;
-	padding-bottom: 20px;
+	padding-bottom: 200px;
 	padding-left: 20px;
 	padding-right: 20px;
 	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
 .dataOutput {
@@ -455,7 +474,7 @@ button:hover{
 }
 
 .welcomeModalBox {
-	display: none; /* Hidden by default */
+	display: block; /* Hidden by default */
 	position: fixed; 
 	z-index: 10000; /* Sit on top */
 	left: 0;
@@ -504,7 +523,7 @@ button:hover{
 	position: sticky;
 	top: 0px;
 	background-color: #3b4f62;
-	padding: 20px 0;
+	padding: 36px 0px 0px 0px;
 	z-index: 9999;
 }
 
@@ -512,4 +531,6 @@ button:hover{
 	width: 100vw;
 	height: 90vh;
 	border: none;
+	display: block;
+	padding-top: 50px;
 }
