@@ -26,6 +26,23 @@ Description: Creating iframe for patient registration main form
   </head>
 
   <body>
+		<div id="welcome" class="welcomeModalBox">
+			<div class = "welcomeModalContent">
+				<h2 id="welcomeMsg">Welcome!</h2>
+				<p>Would you like to continue where you left off?</p>
+				<button 
+					id="continueBtn"
+					type="button"
+					class="continueBtn" 
+				>Continue</button>
+				<button	
+					id="closeModal" 
+					type= "button"
+					class="close" 
+					aria-label="Close"
+				>Start Over</button>
+			</div>
+		</div>
 		<!--Creating form and linking it to pop up the thankyou.html when form is submitted. 
 		Used https://profjake.w3spaces.com/MIS3371/homework3.html as a reference-->
 		<div class="header-container">
@@ -349,7 +366,7 @@ Description: Creating iframe for patient registration main form
 									<td
 									colspan="5"><input 
 										type="address" 
-										name="address" 
+										name="address1" 
 										class="address1"
 										id="addressValidate"
 										onblur="validateAddress()"
@@ -373,7 +390,7 @@ Description: Creating iframe for patient registration main form
 									<td
 									colspan="5"><input 
 										type="address" 
-										name="address"
+										name="address2"
 										autocomplete="off"
 										onblur="validateAddress2() "
 										id="address2Validate"
@@ -450,6 +467,7 @@ Description: Creating iframe for patient registration main form
 							<td>
 								<span class="errMsg" id="cityErrorMsg"></span>
 								<span class="errMsg" id="zipErrorMsg"></span>
+								<span class="errMsg" id="stateErrorMsg"></span>
 							</td>
 						</tr>
 						<tr class="address">
@@ -1021,12 +1039,24 @@ Description: Creating iframe for patient registration main form
                     maxlength="32"
 										required
 									>
-									</input></td>			
+									</input></td>	
+									<td>
+										<label>Remember Me:</label>
+									</td>
+									<td>
+									<input
+										type="checkbox"
+										id="remember-Me"
+										name="remember-Me"
+										checked
+										>
+									</input>
+									</td>
 						</tr>
 					</tbody>						
 				</table>
 				</div>
-				<br>
+				<br>		
 				<br>
 						<div class="buttons">
 
@@ -1055,12 +1085,10 @@ Description: Creating iframe for patient registration main form
 						</div>
 						<br>	
 					<br>
-			<footer>
+			<div class="fixed-footer">
 				<!--Placeholder to bring in the footer-->
-      <div id="footerPlaceholder"></div>
-			</footer>
-		<hr>
-		<hr>
+      	<div id="footerPlaceholder"></div>
+			</div>	
 			<!--Placeholder for re-displaying the inputted data-->  
 			<span id="infoReview"></span>
 		</form>
