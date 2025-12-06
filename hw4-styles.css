@@ -373,6 +373,7 @@ button:hover{
 	vertical-align: top ;
 	color: whitesmoke;
 	padding: 0px 100px 50px 100px;
+	flex-wrap: nowrap;
 	z-index: 9999;
 }
 
@@ -389,10 +390,6 @@ button:hover{
   z-index: 9999;
 }
 
-.footerPlaceholder {
-	height: 150px; /* Height of the footer */
-
-}
 
 /*Styling the social media links so they are aligned to the right and have spacing*/
 #links{
