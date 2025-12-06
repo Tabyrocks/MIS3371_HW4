@@ -46,16 +46,32 @@ function getFooter()
     .catch(error => console.error('Error loading footer:', error));
   }
 
-  /*Created function using fetch API to retrieve the option list for the dropdown state list*/
+  /*Created function using fetch API to retrieve the option list for the dropdown state list.
+  using the try, catch and throw - referencing w3schools.com*/
   function getStateList() 
-  {
-    fetch('hw4-states.html')
-    .then(response => response.text())
-    .then(data => {
-    document.getElementById("state").innerHTML = data;
-    })
-    .catch(error => console.error('Error loading list:', error));
-
+  { 
+    try {
+      fetch('hw4-states.html')//Fetching the states html file
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok ' + response.statusText); //Error handling for fetch
+          }
+          return response.text();
+        })
+        .then(data => {
+      const stateElement = document.getElementById("state");
+      if (!stateElement) {
+      throw new Error('Element with ID "state" not found in the document.');
+          }
+          stateElement.innerHTML = data;
+        })
+        .catch(error => {
+      throw new Error(`Failed to load states ${error.message}`);
+        });
+    } catch (error) {
+      console.log('Error loading list:', error);
+      document.getElementById("stateErrorMsg").innerHTML = "Error loading states. Please refresh the page.";
+    }
   }
 
   //Validating the first name. The display on the css file is set to none but changes to block when the error is present. 
@@ -633,6 +649,7 @@ function reviewData() {
 
 document.addEventListener("DOMContentLoaded", function() {
 
+
 //Defining the inputs to be saved as cookies
 const inputs = [
     { id: "fnameValidate", cookieName: "firstName" }
@@ -671,72 +688,141 @@ function clearAllCookies() {
     }
 }
 
-//Prefilling out the form to auto populate the form fields using the cookie value. Loops through each input field defined in the inputs.
+//Referenced Javascript array ForEach() W3schools
+// Prefilling out the form to auto populate the form fields using the cookie value. Loops through each input field defined in the inputs.
 inputs.forEach(function (input) {
     const inputElement = document.getElementById(input.id);
     if (!inputElement) return; //If the input element is not found, skip to the next iteration.
 
     //prefilling the input fields
     const cookieValue = getCookie(input.cookieName);
-    if (cookieValue) {
+    if (cookieValue && cookieValue.trim() !== "") {
         inputElement.value = cookieValue;
-    
-        inputElement.addEventListener("input", function() {
-            setCookie(input.cookieName, inputElement.value, 30);
-        });
     }
+    
+    inputElement.addEventListener("input", function() {
+        if (inputElement.value.trim() !== "") {
+            setCookie(input.cookieName, inputElement.value, 30);
+        } else {
+            // Clear the cookie if the field is emptied
+            setCookie(input.cookieName, "", -1);
+        }
+    });
 });
 
-    
-/*Checking if cookie is set and if so displaying welcome back message.
-If not set, prompting user to enter their name to set the cookie.*/
-    const modal = document.getElementById("welcomeModalBox");
+/*Referenced Misso.com
+Checking if cookie is set and if so displaying welcome back message.*/
+    const modal = document.getElementById("welcome");
     const welcomeMsg = document.getElementById("welcomeMsg");
     const continueBtn = document.getElementById("continueBtn");
-    const closeModalBtn = document.getElementById("closeModal");
     const rememberMeCheckbox = document.getElementById("remember-Me");
     
-    //Show the modal if the firstName cookie is found
-    const storedFirstName = getCookie("firstName");
-    if (storedFirstName !== "") {
-      welcomeMsg.innerText = "Welcome back, " + storedFirstName + "!";
+    //Show the modal if the firstName cookie is found and has a value
+    const storedFirstName = getCookie("firstName");//Getting the value of the firstName cookie
+    if (storedFirstName && storedFirstName.trim() !== "") { //If the cookie is found and has a value
+      welcomeMsg.innerText = "Welcome back, " + storedFirstName + "!";//Setting the welcome message with the user's first name
       modal.style.display = "block";
+    } else {
+      modal.style.display = "none";
     }
 
-    continueBtn.addEventListener("click", () => modal.style.display = "none");
-
-    getCookie("firstName") = firstName;
-
-    document.cookie = "firstName=" + firstName + ";path=/";
-
-    document.getElementById("closeModal").addEventListener("click", () => {
-      clearAllCookies();
-      location.reload();
-    });
-
-    closeModalBtn.addEventListener("click", () => modal.style.display = "none");
+    continueBtn.addEventListener("click", () => modal.style.display = "none");//Closing the modal when the Continue button is clicked
 
     (document.getElementById("closeModal")).addEventListener("click", () => {
-      clearAllCookies();
+      clearAllCookies();//Clearing all cookies when the Start Over button is clicked
+      localStorage.clear();  // Adding line to clear local storage as well
+      modal.style.display = "none";
       location.reload();
     });
-    
-
+  
   if (rememberMeCheckbox) {
-      rememberMeCheckbox.addEventListener("change", function() {
-      if (!this.checked) {
-          clearAllCookies();
-          console.log("All cookies cleared because 'Remember Me' is unchecked.");
-      } else {
-          inputs.forEach(input => {
-              const el = document.getElementById(input.id);
-              if(el && el.value.trim() !== "") {
-                  setCookie(input.cookieName, el.value, 30);
-              }
-          });
-          console.log("Cookies set because 'Remember Me' is checked.");
-      }
-      });
-      if(!rememberMeCheckbox.checked) clearAllCookies();
+    rememberMeCheckbox.addEventListener("change", function() {//Event listener to check if the checkbox is checked or not
+      // Save the state to localStorage whenever it changes
+        localStorage.setItem("remember-Me", this.checked);
+        
+        if (!this.checked) {
+            clearAllCookies(); // clear cookies only if unchecked
+            localStorage.clear();  // clear local storage as well
+        }
+    });
   } 
 });
+
+//Referencing https://profjake.w3spaces.com/MIS3371/homework4.html. by re-creating the reviewdata() function
+// and modified to create setLocalStorage() and getLocalStorage() functions. Then set up event listener to call the functions.
+function setLocalStorage() {
+    let contents = document.getElementById("medSignupFrm");//setting up variable to reference the form
+    let dataType;
+    for (let i = 0; i < contents.length; i++) {//looping through each element in the form
+        dataType = contents.elements[i].type;
+        switch (dataType) {
+            case "password":
+                break;
+            case "date":
+              break;
+            case "checkbox":
+                localStorage.setItem(contents.elements[i].name, contents.elements[i].checked);
+                break;
+            case "radio":
+                if (contents.elements[i].checked) {
+                    localStorage.setItem(contents.elements[i].name, contents.elements[i].value);
+                }
+                break;
+            case "button": case "submit": case "reset":
+                break;
+            default:
+                localStorage.setItem(contents.elements[i].name, contents.elements[i].value);//setting the local storage item with the name and value of the form element
+        }
+    }
+    const rememberMe = document.getElementById("remember-Me");
+    if (rememberMe) {
+        localStorage.setItem("remember-Me", rememberMe.checked);
+    }
+
+}
+
+function getLocalStorage() {
+    let contents = document.getElementById("medSignupFrm"); //setting up variable to reference the form
+    let dataType;
+    for (let i = 0; i < contents.length; i++) {//looping through each element in the form
+        dataType = contents.elements[i].type;
+        switch (dataType) {
+            case "checkbox":
+                let checkboxValue = localStorage.getItem(contents.elements[i].name);  
+                contents.elements[i].checked = (checkboxValue === 'true');
+                break;
+            case "radio":
+                let radioValue = localStorage.getItem(contents.elements[i].name);
+                if (contents.elements[i].value === radioValue) {
+                    contents.elements[i].checked = true;
+                }
+                break;
+            case "button": case "submit": case "reset":
+                break;
+            default:
+                let storedValue = localStorage.getItem(contents.elements[i].name); //getting the stored value from local storage
+                if (storedValue) {
+                    contents.elements[i].value = storedValue;//setting the form element's value to the stored value
+                }
+        }
+    }
+    // Restoring the default remember-Me checkbox
+    const rememberMe = document.getElementById("remember-Me");
+    if (rememberMe) {
+        const savedState = localStorage.getItem("remember-Me");
+        // If no saved state, default to true (checked); otherwise use saved state
+        rememberMe.checked = (savedState === null) ? true : (savedState === 'true');
+        console.log('Remember-Me checkbox:', rememberMe.checked, 'from storage:', savedState);
+    }
+}
+
+document.addEventListener("DOMContentLoaded", function() {//Adding event listener to call the getLocalStorage function when the DOM content is loaded
+    getLocalStorage();
+    const form = document.getElementById("medSignupFrm");
+    form.addEventListener("input", setLocalStorage);
+});
+
+
+
+
+    
