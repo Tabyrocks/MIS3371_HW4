@@ -382,12 +382,13 @@ button:hover{
 .fixed-footer {
   position: fixed;
   bottom: 0;
-  left: 15.56%;
-  width: 68.88%; /* Width of the footer */
-  height: 180px; /* Height of the footer */
-	background-color: #3b4f62;
-  box-sizing: border-box;
+  left: 15.4vw;
+  right: 15.4vw;
+  width: auto;
+  padding: 20px;
+  background-color: #3b4f62;
   z-index: 9999;
+  box-sizing: border-box;
 }
 
 
